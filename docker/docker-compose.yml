@@ -1,0 +1,25 @@
+services:
+  web-server:
+    build: ./apache
+    volumes:
+      - ../src:/var/www
+      - ./apache/apache-conf/:/etc/apache2/sites-enabled/
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - internal
+
+  database:
+    build: ./database
+    environment:
+      - MYSQL_DATABASE=sosed
+      - MYSQL_ROOT_PASSWORD=951753
+    ports:
+      - "3306:3306"
+    networks:
+      - internal
+
+
+networks:
+  internal:
