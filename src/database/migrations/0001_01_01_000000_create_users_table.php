@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->text('body')->nullable();
             $table->integer('sex')->nullable();
             $table->date('birthday')->nullable();
-            $table->unsignedBigInteger('role_id')->nullable(false);
+            $table->unsignedBigInteger('role_id')->nullable(false)->default(1);
             $table->string('phone')->nullable(false);
             $table->text('photo')->nullable();
             $table->string('name');
