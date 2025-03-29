@@ -18,8 +18,8 @@ class CountrySeeder extends Seeder
 
         while(($data = fgetcsv($csvFile)) !== false){
             Country::create([
-                'id'=>$data[0],
-                'name'=>$data[1]
+                'name'=>$data[0],
+                'description'=>$data[1]
             ]);
         }
 
