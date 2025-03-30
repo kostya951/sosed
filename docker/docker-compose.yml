@@ -22,6 +22,18 @@ services:
     volumes:
       - data:/var/lib/mysql
 
+  test-database:
+    build: ./database
+    environment:
+      - MYSQL_DATABASE=sosed_test
+      - MYSQL_ROOT_PASSWORD=951753
+    ports:
+      - "3307:3306"
+    networks:
+      - internal
+    volumes:
+      - data-test:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
@@ -35,6 +47,7 @@ services:
 
 volumes:
     data:
+    data-test:
 
 networks:
   internal:
