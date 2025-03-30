@@ -19,14 +19,14 @@ class CreateAdsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('ads_categories');
-            $table->string('title')->nullable();
+            $table->string('title')->nullable(false);
             $table->string('photo')->nullable();
-            $table->integer('price')->nullable();
+            $table->integer('price')->nullable(false);
             $table->integer('mouns')->nullable();
             $table->text('body')->nullable();
             $table->string('slug')->nullable()->unique();
             $table->integer('status')->nullable();
-            $table->unsignedBigInteger('apartment_id')->nullable();
+            $table->unsignedBigInteger('apartment_id')->nullable(false);
             $table->foreign('apartment_id')->references('id')->on('apartments');
 
             $table->timestamps();

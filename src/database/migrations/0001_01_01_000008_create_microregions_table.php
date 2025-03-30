@@ -17,9 +17,9 @@ class CreateMicroregionsTable extends Migration
             $table->id();
             $table->string('slug')->nullable(false)->unique();
             $table->string('slider')->nullable();
-            $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable(false);
             $table->unsignedBigInteger('publish_user_id')->nullable(false);
-            $table->string('name',191)->nullable();
+            $table->string('name',191)->nullable(false);
             $table->string('photo')->nullable();
             $table->text('body')->nullable();
             $table->boolean('publish')->nullable(false)->default(false);

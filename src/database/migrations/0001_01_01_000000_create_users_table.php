@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->integer('sex')->nullable();
             $table->date('birthday')->nullable();
             $table->unsignedBigInteger('role_id')->nullable(false)->default(1);
-            $table->string('phone')->nullable(false);
+            $table->string('phone')->nullable();
             $table->text('photo')->nullable();
             $table->string('name');
             $table->string('email')->unique();

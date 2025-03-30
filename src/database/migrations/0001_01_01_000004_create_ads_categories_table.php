@@ -17,7 +17,7 @@ class CreateAdsCategoriesTable extends Migration
             $table->id();
             $table->string('slug')->nullable(false)->unique();
             $table->bigInteger('parent_id')->nullable();
-            $table->string('title')->nullable();
+            $table->string('title')->nullable(false);
             $table->string('h1')->nullable();
             $table->string('page_title')->nullable();
             $table->text('body')->nullable();

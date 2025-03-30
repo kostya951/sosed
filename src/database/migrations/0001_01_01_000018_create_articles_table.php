@@ -26,8 +26,10 @@ class CreateArticlesTable extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_keywords')->nullable();
+            $table->unsignedBigInteger('publish_user_id')->nullable(false);
 
             $table->foreign('category_id')->references('id')->on('articles_categories');
+            $table->foreign('publish_user_id')->references('id')->on('users');
         });
     }
 
