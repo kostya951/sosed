@@ -12,7 +12,7 @@ class NewsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->text(20),
             'body' => fake()->text(100),
             'apartment_id' => Apartment::all()->random()->id,
             'company_id' => Company::all()->random()->id,
