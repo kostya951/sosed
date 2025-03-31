@@ -17,7 +17,7 @@
         @endforelse
     </div>
     <div class="row justify-content-center mt-3">
-        <div class="col-3">
+        <div class="col-3 text-center">
             <a class="btn btn-primary" href="#">Посмотреть всех</a>
         </div>
     </div>
