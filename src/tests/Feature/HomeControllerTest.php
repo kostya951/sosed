@@ -16,10 +16,8 @@ use App\Models\Region;
 use App\Models\Role;
 use App\Models\Street;
 use App\Models\User;
-use Database\Factories\ArticleFactory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
@@ -29,10 +27,6 @@ class HomeControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-    }
-
-    public function test_basic_route_shows_users()
-    {
         Role::create([
             'id'=>1,
             'name'=>'citizen',
@@ -44,7 +38,10 @@ class HomeControllerTest extends TestCase
             'name'=>'admin',
             'label'=>'Администратор'
         ]);
+    }
 
+    public function test_basic_route_shows_users()
+    {
         $normalUsers = User::factory()->count(3)->create()->pluck('name')->toArray();
         $unverifiedUsers= User::factory()->count(3)->unverified()->create()->pluck('name')->toArray();
         $blockedUsers = User::factory()->count(1)->blocked()->create()->pluck('name')->toArray();
@@ -83,7 +80,7 @@ class HomeControllerTest extends TestCase
                     'city_id' => City::all()->random()->id
                 ];
             })
-            ->for(User::factory()->for(Role::factory()))
+            ->for(User::factory())
             ->published()
             ->count(10)
             ->create();
@@ -94,7 +91,7 @@ class HomeControllerTest extends TestCase
                     'microregion_id' => Microregion::all()->random()->id
                 ];
             })
-            ->for(User::factory()->for(Role::factory()))
+            ->for(User::factory())
             ->published()
             ->count(20)
             ->create();
@@ -112,7 +109,7 @@ class HomeControllerTest extends TestCase
         $categories = AdCategory::factory()->count(5)->create()->pluck('id');
 
         $ads = Ad::factory()
-            ->for(User::factory()->for(Role::factory()))
+            ->for(User::factory())
             ->sequence(function (Sequence $sequence){
                 return [
                     'category_id' => AdCategory::all()->random()->id,
@@ -134,7 +131,7 @@ class HomeControllerTest extends TestCase
     }
 
     public function test_basic_route_shows_articles(){
-        $users = User::factory()->for(Role::factory())->count(10)->create();
+        $users = User::factory()->count(10)->create();
         $articleCategories = ArticleCategory::factory()->count(10)->create();
 
         $articles = Article::factory()
@@ -177,7 +174,7 @@ class HomeControllerTest extends TestCase
                     'city_id' => City::all()->random()->id
                 ];
             })
-            ->for(User::factory()->for(Role::factory()))
+            ->for(User::factory())
             ->published()
             ->count(10)
             ->create();
@@ -188,7 +185,7 @@ class HomeControllerTest extends TestCase
                     'microregion_id' => Microregion::all()->random()->id
                 ];
             })
-            ->for(User::factory()->for(Role::factory()))
+            ->for(User::factory())
             ->published()
             ->count(20)
             ->create();
