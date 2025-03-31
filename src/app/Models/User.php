@@ -22,4 +22,20 @@ class User extends Authenticatable
     public function articles(){
         return $this->hasMany(Article::class,'publish_user_id','id');
     }
+
+    public function scopeCitizen(){
+        return User::whereRelation('role','name','admin');
+    }
+
+    public function scopeVerified(){
+        return User::whereNotNull('email_verified_at');
+    }
+
+    public function scopeNotBlocked(){
+        return User::whereNull('block_at');
+    }
+
+    public function scopeNotDeleted(){
+        return User::whereNull('deleted_at');
+    }
 }
