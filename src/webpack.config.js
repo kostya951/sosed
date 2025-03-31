@@ -10,8 +10,20 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.vue$/, loader: 'vue-loader' },
+            { test: /\.vue$/, use: ['vue-loader',]},
             { test: /\.css$/, use: ['vue-style-loader', 'css-loader']},
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                use:[
+                    {
+                        loader : 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath:'./../img',
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
