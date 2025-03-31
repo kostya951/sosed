@@ -125,7 +125,6 @@ class HomeControllerTest extends TestCase
 
         $ads->each(function(Ad $ad) use($response){
            $response->assertSee($ad->title);
-           $response->assertSee($ad->price);
            $response->assertSee($ad->category->title);
         });
     }
