@@ -23,19 +23,19 @@ class User extends Authenticatable
         return $this->hasMany(Article::class,'publish_user_id','id');
     }
 
-    public function scopeCitizen(){
-        return User::whereRelation('role','name','admin');
+    public function scopeCitizen($query){
+        return $query->whereRelation('role','name','citizen');
     }
 
-    public function scopeVerified(){
-        return User::whereNotNull('email_verified_at');
+    public function scopeVerified($query){
+        return $query->whereNotNull('email_verified_at');
     }
 
-    public function scopeNotBlocked(){
-        return User::whereNull('block_at');
+    public function scopeNotBlocked($query){
+        return $query->whereNull('block_at');
     }
 
-    public function scopeNotDeleted(){
-        return User::whereNull('deleted_at');
+    public function scopeNotDeleted($query){
+        return $query->whereNull('deleted_at');
     }
 }

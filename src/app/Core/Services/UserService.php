@@ -29,9 +29,9 @@ class UserService implements UserServiceInterface
                 ->get();
 
         $result = [];
-        $users->each(function (User $user) use ($result){
+        foreach ($users as $user){
             $result[] = $this->assembler->assemble($user);
-        });
+        }
 
         return $result;
     }
