@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Core\Assemblers\AdsToLastAdsAssembler;
+use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
 use App\Core\Assemblers\UserToLastUserAssembler;
 use App\Core\Assemblers\UserToLastUserAssemblerInterface;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +15,9 @@ class AssemblersServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserToLastUserAssemblerInterface::class,function($app){
             return new UserToLastUserAssembler();
+        });
+        $this->app->bind(AdsToLastAdsAssemblerInterface::class,function($app){
+            return new AdsToLastAdsAssembler();
         });
     }
 
