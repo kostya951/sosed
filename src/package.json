@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "build": "webpack --config webpack.config.js",
+        "build": "webpack --config webpack.config.js --watch",
         "dev": "vite"
     },
     "devDependencies": {
@@ -15,7 +15,10 @@
         "webpack-cli": "^6.0.1"
     },
     "dependencies": {
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
         "css-loader": "^7.1.2",
+        "file-loader": "^6.2.0",
         "vue": "^3.5.13",
         "vue-loader": "^17.4.2",
         "vue-style-loader": "^4.1.3"
