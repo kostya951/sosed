@@ -5,7 +5,7 @@
 ?>
 <h1 class="text-center">Твои соседи уже здесь!</h1>
 <div class="col-md-12">
-    <div class="row">
+    <div class="row flex-nowrap">
         @forelse($users as $user)
             <div class="col-2">
                 <x-usercard userPhotoPath="{{ $user->photo }}" userName="{{ $user->name }}"></x-usercard>
@@ -16,9 +16,11 @@
             </div>
         @endforelse
     </div>
-    <div class="row justify-content-center mt-3">
-        <div class="col-3 text-center">
-            <a class="btn btn-primary" href="#">Посмотреть всех</a>
+    @if(!empty($users))
+        <div class="row justify-content-center mt-3">
+            <div class="col-3 text-center">
+                <a class="btn btn-primary" href="#">Посмотреть всех</a>
+            </div>
         </div>
-    </div>
+    @endif
 </div>

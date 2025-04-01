@@ -1,0 +1,31 @@
+<?php
+    /**
+     * @var \App\Core\Dto\LastArticleDto[] $articles
+     */
+?>
+<h1 class="text-center">Последние статьи!</h1>
+<div class="col-md-12">
+    <div class="row">
+        @forelse($articles as $article)
+            <div class="col-6 mx-1 my-5">
+                <x-articlecard
+                    title="{{$article->title}}"
+                    description="{{$article->description}}"
+                    date="{{$article->date}}"
+                    category="{{$article->category}}"
+                ></x-articlecard>
+            </div>
+        @empty
+            <div class="col-12 text-center">
+                Нету статей ещё! Будьте первым! Зарегистрируйтесь и напишите статью!
+            </div>
+        @endforelse
+    </div>
+    @if(!empty($articles))
+        <div class="row justify-content-center mt-3">
+            <div class="col-3 text-center">
+                <a class="btn btn-primary" href="#">Посмотреть все статьи!</a>
+            </div>
+        </div>
+    @endif
+</div>

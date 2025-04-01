@@ -2,6 +2,7 @@
     /**
      * @var \App\Core\Dto\LastUserDto[] $users
      * @var \App\Core\Dto\LastAdsDto[] $ads
+     * @var \App\Core\Dto\LastArticleDto[] $articles
      */
 ?>
 @extends('layouts.app')
@@ -18,6 +19,9 @@
         </div>
         <div class="row justify-content-center">
             @include('home.ads',['ads'=>$ads])
+        </div>
+        <div class="row justify-content-center">
+            @include('home.articles',['articles'=>$articles])
         </div>
     </div>
 @endsection

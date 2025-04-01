@@ -10,13 +10,12 @@ class Article extends Model
     use HasFactory;
 
     public $table = 'articles';
-    public $timestamps = false;
 
     public function category(){
-        return $this->belongsTo(ArticleCategory::class,'id','category_id');
+        return $this->belongsTo(ArticleCategory::class,'category_id','id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class,'id','publish_user_id');
+        return $this->belongsTo(User::class,'publish_user_id','id');
     }
 }
