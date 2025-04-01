@@ -13,7 +13,7 @@ class ArticleToLastArticleAssembler implements ArticleToLastArticleAssemblerInte
         $dto = new LastArticleDto();
         $dto->title = $article->title;
         $dto->date = $article->created_at;
-        $dto->category = $article->category->title;
+        $dto->category = isset($article->category) ? $article->category->title : '';
         $dto->description = $article->description;
         return $dto;
     }

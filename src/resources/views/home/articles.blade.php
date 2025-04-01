@@ -3,11 +3,11 @@
      * @var \App\Core\Dto\LastArticleDto[] $articles
      */
 ?>
-<h1 class="text-center">Последние статьи!</h1>
+<h1 class="text-center mt-5">Последние статьи!</h1>
 <div class="col-md-12">
     <div class="row">
         @forelse($articles as $article)
-            <div class="col-6 mx-1 my-5">
+            <div class="col-5 mx-1 my-5">
                 <x-articlecard
                     title="{{$article->title}}"
                     description="{{$article->description}}"
