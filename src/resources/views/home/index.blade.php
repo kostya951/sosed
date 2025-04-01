@@ -14,16 +14,16 @@
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-center py-5">
+        <div class="row justify-content-center mt-5">
             @include('home.neighbours',['users'=>$users])
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-5">
             @include('home.ads',['ads'=>$ads])
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-5">
             @include('home.articles',['articles'=>$articles])
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-5 mb-5">
             @include('home.news',['news'=>$news])
         </div>
     </div>

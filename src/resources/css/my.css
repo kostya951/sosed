@@ -45,3 +45,10 @@
 .flex-nowrap {
     overflow-x: scroll;
 }
+
+footer {
+    background: #008DEE;
+    color: white;
+    min-height: 200px;
+    padding:20px
+}
