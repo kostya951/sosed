@@ -23,5 +23,8 @@
         <div class="row justify-content-center">
             @include('home.articles',['articles'=>$articles])
         </div>
+        <div class="row justify-content-center">
+            @include('home.news',['news'=>$news])
+        </div>
     </div>
 @endsection

@@ -208,12 +208,14 @@ class HomeControllerTest extends TestCase
                     'company_id' => Company::all()->random()->id,
                 ];
             })
-            ->count(6)
+            ->count(9)
             ->create()
             ->pluck('title')
             ->toArray();
 
         $response = $this->get('/');
+        $response->assertStatus(200);
+
         $response->assertSee($news);
     }
 }

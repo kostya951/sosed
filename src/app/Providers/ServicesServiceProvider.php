@@ -4,11 +4,14 @@ namespace App\Providers;
 
 use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
 use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
+use App\Core\Assemblers\NewsToLastNewsAssemblerInterface;
 use App\Core\Assemblers\UserToLastUserAssemblerInterface;
 use App\Core\Services\AdsService;
 use App\Core\Services\AdsServiceInterface;
 use App\Core\Services\ArticleService;
 use App\Core\Services\ArticleServiceInterface;
+use App\Core\Services\NewsService;
+use App\Core\Services\NewsServiceInterface;
 use App\Core\Services\UserService;
 use App\Core\Services\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +28,9 @@ class ServicesServiceProvider extends ServiceProvider
         });
         $this->app->bind(ArticleServiceInterface::class,function($app){
             return new ArticleService($app->make(ArticleToLastArticleAssemblerInterface::class));
+        });
+        $this->app->bind(NewsServiceInterface::class,function($app){
+            return new NewsService($app->make(NewsToLastNewsAssemblerInterface::class));
         });
     }
 
