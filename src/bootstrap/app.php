@@ -18,7 +18,4 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(function (NotFoundHttpException $e){
             return response()->view('errors.404',['exception'=>$e]);
         });
-        $exceptions->render(function (Exception $e){
-            return response()->view('errors.500',['exception'=>$e]);
-        });
     })->create();
