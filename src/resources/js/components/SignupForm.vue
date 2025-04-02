@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header">Регистрация</div>
                     <div class="card-body">
-                        <form method="POST" action="/signup">
+                        <form @submit.prevent="submit" method="POST" action="/signup">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-end">Имя</label>
                                 <div class="col-md-6">
@@ -29,6 +29,7 @@
                                 <div class="col-md-6">
                                     <input v-model="confirmPassword" id="password-confirm" type="password" name="confirm_password" required="required" autocomplete="new-password" class="form-control">
                                 </div>
+                                <div ref="confirmation" id="password-confirm-error" hidden="hidden" style="color:red" class="text-center">Пароли должны совпадать</div>
                             </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-end">Дата рождения</label>
@@ -73,7 +74,29 @@ export default {
             password: '',
             confirmPassword: '',
             birthday: '',
-            sex: '',
+            sex: 2,
+        }
+    },
+    methods: {
+        submit() {
+            console.log(this.name);
+            console.log(this.email);
+            console.log(this.password);
+            console.log(this.confirmPassword);
+            console.log(this.birthday);
+            console.log(this.sex);
+        },
+        passwordsMatch(){
+            return this.password === this.confirmPassword;
+        },
+    },
+    watch: {
+        confirmPassword(newPassword){
+            if(this.password !== newPassword){
+                this.$refs.confirmation.hidden = false;
+            }else{
+                this.$refs.confirmation.hidden = true;
+            }
         }
     }
 }
