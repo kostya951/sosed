@@ -4,16 +4,40 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class User extends Authenticatable
 {
     use HasFactory;
+    use HasSlug;
 
     public $table = 'users';
     public $hidden = [
         'password',
         'remember_token'
     ];
+    public $fillable = [
+        'password',
+        'email',
+        'birthday',
+        'role_id',
+        'sex',
+        'name'
+    ];
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom(['id','name'])
+            ->saveSlugsTo('slug')
+            ->doNotGenerateSlugsOnUpdate();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function role(){
         return $this->belongsTo(Role::class);
