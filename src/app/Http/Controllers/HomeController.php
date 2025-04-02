@@ -33,4 +33,8 @@ class HomeController extends Controller
     public function showSignupPage(){
         return view('auth.signup');
     }
+
+    public function showLoginPage(){
+        return view('auth.login');
+    }
 }
