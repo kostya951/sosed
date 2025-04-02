@@ -9,3 +9,4 @@ Route::get('/login', [HomeController::class,'showLoginPage'])->name('showLogin')
 Route::post('/signup',[HomeController::class,'signup'])->name('signup');
 Route::post('/login',[HomeController::class,'login'])->name('login');
 Route::post('/logout',[HomeController::class,'logout'])->name('logout');
+Route::get('/password/reset',[HomeController::class,'resetPassword'])->name('password');
