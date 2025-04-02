@@ -52,14 +52,11 @@ body {
 footer{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-footer {
+    min-height:50vh;
     background: #008DEE;
     color: white;
     margin-top: auto;
     width:100%;
-    height:inherit;
 }
 
 .col-form-label {
