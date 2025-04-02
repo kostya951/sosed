@@ -5,29 +5,33 @@
                 <div class="card">
                     <div class="card-header">Регистрация</div>
                     <div class="card-body">
-                        <form @submit.prevent="submit" method="POST" action="/signup">
+                        <form @submit.prevent="submit" method="POST" action="/register">
+                            <slot name="csrf"></slot>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-end">Имя</label>
                                 <div class="col-md-6">
                                     <input v-model="name" id="name" type="text" name="name" value="" required="required" autocomplete="name" autofocus="autofocus" class="form-control">
                                 </div>
+                                <slot name="name-field-errors"></slot>
                             </div>
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-end">E-Mail</label>
                                 <div class="col-md-6">
                                     <input v-model="email" id="email" type="email" name="email" value="" required="required" autocomplete="email" class="form-control">
                                 </div>
+                                <slot name="email-field-errors"></slot>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-end">Пароль</label>
                                 <div class="col-md-6">
                                     <input v-model="password" id="password" type="password" name="password" required="required" autocomplete="new-password" class="form-control">
                                 </div>
+                                <slot name="password-field-errors"></slot>
                             </div>
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-end">Подтвердите пароль</label>
                                 <div class="col-md-6">
-                                    <input v-model="confirmPassword" id="password-confirm" type="password" name="confirm_password" required="required" autocomplete="new-password" class="form-control">
+                                    <input v-model="confirmPassword" id="password-confirm" type="password" name="password_confirmation" required="required" autocomplete="new-password" class="form-control">
                                 </div>
                                 <div ref="confirmation" id="password-confirm-error" hidden="hidden" style="color:red" class="text-center">Пароли должны совпадать</div>
                             </div>
@@ -36,6 +40,7 @@
                                 <div class="col-md-6">
                                     <input v-model="birthday" id="birthday" type="date" name="birthday" required="required" class="form-control">
                                 </div>
+                                <slot name="birthday-field-errors"></slot>
                             </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-end">Пол</label>
@@ -66,6 +71,8 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -78,13 +85,16 @@ export default {
         }
     },
     methods: {
-        submit() {
+        submit(e) {
             console.log(this.name);
             console.log(this.email);
             console.log(this.password);
             console.log(this.confirmPassword);
             console.log(this.birthday);
             console.log(this.sex);
+            if(this.passwordsMatch()){
+                e.target.submit();
+            }
         },
         passwordsMatch(){
             return this.password === this.confirmPassword;

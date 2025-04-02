@@ -15,8 +15,8 @@
     <div class="col-6">
         @guest
             <nav class="nav justify-content-end">
-              <a class="nav-link" href="{{route('showLogin')}}">Войти</a>
-              <a class="nav-link" href="{{route('showSignup')}}">Регистрация</a>
+              <a class="nav-link" href="{{route('login')}}">Войти</a>
+              <a class="nav-link" href="{{route('register')}}">Регистрация</a>
             </nav>
         @endguest
         @auth
