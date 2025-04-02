@@ -10,6 +10,10 @@ class User extends Authenticatable
     use HasFactory;
 
     public $table = 'users';
+    public $hidden = [
+        'password',
+        'remember_token'
+    ];
 
     public function role(){
         return $this->belongsTo(Role::class);
