@@ -11,7 +11,9 @@
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail адресс</label>
                                 <div class="col-md-6">
-                                    <input id="email" type="email" name="email" value="" required="required" autocomplete="email" autofocus="autofocus" class="form-control"></div>
+                                    <input id="email" type="email" name="email" value="" required="required" autocomplete="email" autofocus="autofocus" class="form-control">
+                                </div>
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
                             <div class="form-group row mb-0 mt-3    ">
                                 <div class="col-md-6 offset-md-4">
