@@ -5,7 +5,8 @@
                 <div class="card">
                     <div class="card-header">Вход</div>
                     <div class="card-body">
-                        <form method="POST" action="https://test.zms24.ru/login">
+                        <form method="POST" action="/login">
+                            <slot name="csrf"></slot>
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-end">E-Mail</label>
                                 <div class="col-md-6">
@@ -20,6 +21,7 @@
                                         autofocus="autofocus"
                                         class="form-control">
                                 </div>
+                                <slot name="email-field-errors"></slot>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-end">Пароль</label>
@@ -49,7 +51,7 @@
                                     <button type="submit" class="btn btn-primary">
                                     Вход
                                 </button>
-                                    <a href="/password/reset" class="btn btn-link">
+                                    <a href="/forgot-password" class="btn btn-link">
                                     Забыли пароль?
                                 </a>
                                 </div>
