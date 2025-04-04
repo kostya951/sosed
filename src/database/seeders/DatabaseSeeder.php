@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeders\CitySeeder::class);
         $this->call(\Database\Seeders\AdsCategoriesSeeder::class);
         $this->call(\Database\Seeders\RoleSeeder::class);
+        $this->call(\Database\Seeders\UserSeeder::class);
+        $this->call(\Database\Seeders\ArticleCategorySeeder::class);
+        $this->call(\Database\Seeders\ArticleSeeder::class);
     }
 }
