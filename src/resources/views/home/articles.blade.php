@@ -25,7 +25,7 @@
     @if(!empty($articles))
         <div class="row justify-content-center mt-3">
             <div class="col-3 text-center">
-                <a class="btn btn-primary" href="#">Посмотреть все статьи!</a>
+                <a class="btn btn-primary" href="{{route('articles')}}">Посмотреть все статьи!</a>
             </div>
         </div>
     @endif

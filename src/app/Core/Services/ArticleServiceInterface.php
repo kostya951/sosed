@@ -8,13 +8,13 @@ use App\Core\Dto\ArticlesPageDto;
 interface ArticleServiceInterface
 {
     /**
-     * @param int $count
+     * @param int $count количество статей
      * @return ArticleCardDto[]
      */
-    public function getLastArticles(int $count = 9):array;
+    public function getLastArticles(int $count = 6):array;
 
     /**
-     * @param int $count Количество выводимых статье на страницу
+     * @param int $count Количество выводимых статей на страницу
      * @return ArticlesPageDto
      */
     public function getAllArticles(int $count=10):ArticlesPageDto;

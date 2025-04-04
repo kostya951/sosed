@@ -4,8 +4,6 @@ namespace App\Core\Services;
 
 use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
 use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
-use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
-use App\Core\Dto\ArticleCardDto;
 use App\Core\Dto\ArticlesPageDto;
 use App\Core\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;
@@ -30,7 +28,7 @@ class ArticleService implements ArticleServiceInterface
     /**
      * @inheritDoc
      */
-    public function getLastArticles(int $count = 9): array
+    public function getLastArticles(int $count = 6): array
     {
         $articles = $this->repository->getLastArticles($count);
 
