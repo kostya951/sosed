@@ -5,7 +5,7 @@
                 <img class="logo" src="/img/logo.png" alt="ZMS-24 - Новая социальная сеть" title="ZMS-24 - Новая социальная сеть" />
             </a>
           <a class="nav-link" href="{{route('home')}}">Главная</a>
-          <a class="nav-link" href="#">Статьи</a>
+          <a class="nav-link" href="{{route('articles')}}">Статьи</a>
           <a class="nav-link" href="#">Обсуждения</a>
           <a class="nav-link" href="#">Объявления</a>
           <a class="nav-link" href="#">Найти соседей</a>

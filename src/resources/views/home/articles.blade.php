@@ -1,6 +1,6 @@
 <?php
     /**
-     * @var \App\Core\Dto\LastArticleDto[] $articles
+     * @var \App\Core\Dto\ArticleCardDto[] $articles
      */
 ?>
 <h1 class="text-center mt-5">Последние статьи!</h1>
@@ -13,6 +13,7 @@
                     description="{{$article->description}}"
                     date="{{$article->date}}"
                     category="{{$article->category}}"
+                    slug="{{$article->slug}}"
                 ></x-articlecard>
             </div>
         @empty

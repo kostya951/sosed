@@ -14,7 +14,6 @@ class ArticleFactory extends Factory
         return [
             'title' => fake()->text(20),
             'body' => fake()->text(),
-            'slug' => fake()->text(30),
             'description' => fake()->text(100),
             'category_id' => ArticleCategory::all()->random()->id,
             'publish_user_id' => User::all()->random()->id

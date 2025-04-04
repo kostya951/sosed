@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Core\Assemblers\AdsToLastAdsAssembler;
 use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
+use App\Core\Assemblers\ArticlesToArticlePageAssembler;
+use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\ArticleToArticleCardAssembler;
+use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
 use App\Core\Assemblers\ArticleToLastArticleAssembler;
 use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
 use App\Core\Assemblers\NewsToLastNewsAssembler;
@@ -28,6 +32,12 @@ class AssemblersServiceProvider extends ServiceProvider
         });
         $this->app->bind(NewsToLastNewsAssemblerInterface::class,function($app){
             return new NewsToLastNewsAssembler();
+        });
+        $this->app->bind(ArticleToArticleCardAssemblerInterface::class,function($app){
+            return new ArticleToArticleCardAssembler();
+        });
+        $this->app->bind(ArticlesToArticlePageAssemblerInterface::class,function($app){
+            return new ArticlesToArticlePageAssembler($app->make(ArticleToArticleCardAssemblerInterface::class));
         });
     }
 

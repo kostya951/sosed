@@ -3,9 +3,12 @@
 namespace App\Providers;
 
 use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
+use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
 use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
 use App\Core\Assemblers\NewsToLastNewsAssemblerInterface;
 use App\Core\Assemblers\UserToLastUserAssemblerInterface;
+use App\Core\Repositories\ArticleRepositoryInterface;
 use App\Core\Repositories\UserRepositoryInterface;
 use App\Core\Services\AdsService;
 use App\Core\Services\AdsServiceInterface;
@@ -30,7 +33,11 @@ class ServicesServiceProvider extends ServiceProvider
             return new AdsService($app->make(AdsToLastAdsAssemblerInterface::class));
         });
         $this->app->bind(ArticleServiceInterface::class,function($app){
-            return new ArticleService($app->make(ArticleToLastArticleAssemblerInterface::class));
+            return new ArticleService(
+                $app->make(ArticleRepositoryInterface::class),
+                $app->make(ArticleToArticleCardAssemblerInterface::class),
+                $app->make(ArticlesToArticlePageAssemblerInterface::class)
+            );
         });
         $this->app->bind(NewsServiceInterface::class,function($app){
             return new NewsService($app->make(NewsToLastNewsAssemblerInterface::class));

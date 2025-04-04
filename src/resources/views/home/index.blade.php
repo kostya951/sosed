@@ -2,7 +2,7 @@
     /**
      * @var \App\Core\Dto\LastUserDto[] $users
      * @var \App\Core\Dto\LastAdsDto[] $ads
-     * @var \App\Core\Dto\LastArticleDto[] $articles
+     * @var \App\Core\Dto\ArticleCardDto[] $articles
      */
 ?>
 @extends('layouts.app')

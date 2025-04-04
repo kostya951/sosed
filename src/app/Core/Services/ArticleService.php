@@ -2,17 +2,29 @@
 
 namespace App\Core\Services;
 
+use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
 use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
-use App\Core\Dto\LastArticleDto;
+use App\Core\Dto\ArticleCardDto;
+use App\Core\Dto\ArticlesPageDto;
+use App\Core\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;
 
 class ArticleService implements ArticleServiceInterface
 {
 
-    private ArticleToLastArticleAssemblerInterface $assembler;
+    private ArticleRepositoryInterface $repository;
+    private ArticleToArticleCardAssemblerInterface $articleCardAssembler;
+    private ArticlesToArticlePageAssemblerInterface $pageAssembler;
 
-    public function __construct(ArticleToLastArticleAssemblerInterface $assembler){
-        $this->assembler = $assembler;
+    public function __construct(
+        ArticleRepositoryInterface $repository,
+        ArticleToArticleCardAssemblerInterface $articleCardAssembler,
+        ArticlesToArticlePageAssemblerInterface $pageAssembler,
+    ){
+        $this->repository = $repository;
+        $this->articleCardAssembler = $articleCardAssembler;
+        $this->pageAssembler = $pageAssembler;
     }
 
     /**
@@ -20,15 +32,31 @@ class ArticleService implements ArticleServiceInterface
      */
     public function getLastArticles(int $count = 9): array
     {
-        $articles = Article::query()
-            ->orderByDesc('created_at')
-            ->limit($count)
-            ->get();
+        $articles = $this->repository->getLastArticles($count);
 
         $result=[];
         foreach ($articles as $article){
-            $result[] = $this->assembler->assemble($article);
+            $result[] = $this->articleCardAssembler->assemble($article);
         }
         return $result;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getAllArticles(int $count=10): ArticlesPageDto
+    {
+        $articles = Article::query()->orderByDesc('created_at');
+        $articles = $articles->paginate($count);
+
+        $dto = $this->pageAssembler->assemble($articles->getCollection());
+
+        $total = $articles->total();
+        $links = $articles->links();
+
+        $dto->totalArticles = $total;
+        $dto->links = $links;
+
+        return $dto;
     }
 }
