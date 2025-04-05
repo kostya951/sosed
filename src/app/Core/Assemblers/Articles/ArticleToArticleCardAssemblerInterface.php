@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Assemblers;
+namespace App\Core\Assemblers\Articles;
 
 use App\Core\Dto\ArticleCardDto;
 use App\Models\Article;

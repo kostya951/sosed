@@ -2,9 +2,7 @@
 
 namespace App\Core\Services;
 
-use App\Core\Assemblers\UserToLastUserAssembler;
-use App\Core\Assemblers\UserToLastUserAssemblerInterface;
-use App\Core\Dto\LastUserDto;
+use App\Core\Assemblers\Users\UserToLastUserAssemblerInterface;
 use App\Models\User;
 
 class UserService implements UserServiceInterface

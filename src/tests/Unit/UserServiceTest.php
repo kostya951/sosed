@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Core\Assemblers\UserToLastUserAssembler;
+use App\Core\Assemblers\Users\UserToLastUserAssembler;
 use App\Core\Services\UserService;
 use App\Core\Services\UserServiceInterface;
 use App\Models\Role;

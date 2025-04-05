@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Assemblers;
+namespace App\Core\Assemblers\Users;
 
 use App\Core\Dto\LastUserDto;
 use App\Core\Traits\HasNoPhoto;

@@ -2,8 +2,8 @@
 
 namespace App\Core\Services;
 
-use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
-use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
 use App\Core\Dto\ArticlesPageDto;
 use App\Core\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;

@@ -2,10 +2,7 @@
 
 namespace App\Core\Services;
 
-use App\Core\Assemblers\AdsToLastAdsAssembler;
-use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
-use App\Core\Dto\LastAdsDto;
-use App\Core\Services\AdsServiceInterface;
+use App\Core\Assemblers\Ads\AdsToLastAdsAssemblerInterface;
 use App\Models\Ad;
 
 class AdsService implements AdsServiceInterface

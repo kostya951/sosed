@@ -2,9 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Core\Assemblers\ArticlesToArticlePageAssembler;
-use App\Core\Assemblers\ArticleToArticleCardAssembler;
-use App\Core\Assemblers\ArticleToLastArticleAssembler;
+use App\Core\Assemblers\Articles\ArticlesToArticlePageAssembler;
+use App\Core\Assemblers\Articles\ArticleToArticleCardAssembler;
 use App\Core\Repositories\ArticleRepository;
 use App\Core\Services\ArticleService;
 use App\Core\Services\ArticleServiceInterface;

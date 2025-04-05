@@ -2,20 +2,20 @@
 
 namespace App\Providers;
 
-use App\Core\Assemblers\AdsToLastAdsAssembler;
-use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
-use App\Core\Assemblers\ArticleAssembler;
-use App\Core\Assemblers\ArticleAssemblerInterface;
-use App\Core\Assemblers\ArticlesToArticlePageAssembler;
-use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
-use App\Core\Assemblers\ArticleToArticleCardAssembler;
-use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
-use App\Core\Assemblers\ArticleToLastArticleAssembler;
-use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
-use App\Core\Assemblers\NewsToLastNewsAssembler;
-use App\Core\Assemblers\NewsToLastNewsAssemblerInterface;
-use App\Core\Assemblers\UserToLastUserAssembler;
-use App\Core\Assemblers\UserToLastUserAssemblerInterface;
+
+use App\Core\Assemblers\Ads\AdsToLastAdsAssembler;
+use App\Core\Assemblers\Ads\AdsToLastAdsAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticleAssembler;
+use App\Core\Assemblers\Articles\ArticleAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticlesToArticlePageAssembler;
+use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticleToArticleCardAssembler;
+use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
+
+use App\Core\Assemblers\News\NewsToLastNewsAssembler;
+use App\Core\Assemblers\News\NewsToLastNewsAssemblerInterface;
+use App\Core\Assemblers\Users\UserToLastUserAssembler;
+use App\Core\Assemblers\Users\UserToLastUserAssemblerInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AssemblersServiceProvider extends ServiceProvider
@@ -28,9 +28,6 @@ class AssemblersServiceProvider extends ServiceProvider
         });
         $this->app->bind(AdsToLastAdsAssemblerInterface::class,function($app){
             return new AdsToLastAdsAssembler();
-        });
-        $this->app->bind(ArticleToLastArticleAssemblerInterface::class, function($app){
-            return new ArticleToLastArticleAssembler();
         });
         $this->app->bind(NewsToLastNewsAssemblerInterface::class,function($app){
             return new NewsToLastNewsAssembler();

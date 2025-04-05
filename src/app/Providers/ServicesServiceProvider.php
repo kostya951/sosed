@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
-use App\Core\Assemblers\AdsToLastAdsAssemblerInterface;
-use App\Core\Assemblers\ArticlesToArticlePageAssemblerInterface;
-use App\Core\Assemblers\ArticleToArticleCardAssemblerInterface;
-use App\Core\Assemblers\ArticleToLastArticleAssemblerInterface;
-use App\Core\Assemblers\NewsToLastNewsAssemblerInterface;
-use App\Core\Assemblers\UserToLastUserAssemblerInterface;
+use App\Core\Assemblers\Ads\AdsToLastAdsAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
+use App\Core\Assemblers\News\NewsToLastNewsAssemblerInterface;
+use App\Core\Assemblers\Users\UserToLastUserAssemblerInterface;
 use App\Core\Repositories\ArticleRepositoryInterface;
 use App\Core\Repositories\UserRepositoryInterface;
 use App\Core\Services\AdsService;

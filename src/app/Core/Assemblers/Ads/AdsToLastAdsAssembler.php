@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Assemblers;
+namespace App\Core\Assemblers\Ads;
 
 use App\Core\Dto\LastAdsDto;
 use App\Core\Traits\HasNoPhoto;

@@ -2,7 +2,7 @@
 
 namespace App\Core\Services;
 
-use App\Core\Assemblers\NewsToLastNewsAssemblerInterface;
+use App\Core\Assemblers\News\NewsToLastNewsAssemblerInterface;
 use App\Core\Dto\LastNewsDto;
 use App\Models\News;
 
