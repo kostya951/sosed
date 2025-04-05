@@ -13,7 +13,7 @@ class CreateAppartmentUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartment_users', function (Blueprint $table) {
+        Schema::create('apartments_users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id')->nullable(false);
             $table->unsignedBigInteger('user_id')->nullable(false);
@@ -35,6 +35,6 @@ class CreateAppartmentUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartment_users');
+        Schema::dropIfExists('apartments_users');
     }
 }

@@ -18,7 +18,12 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeders\AdsCategoriesSeeder::class);
         $this->call(\Database\Seeders\RoleSeeder::class);
         $this->call(\Database\Seeders\UserSeeder::class);
+        $this->call(\Database\Seeders\MicroregionSeeder::class);
+        $this->call(\Database\Seeders\StreetSeeder::class);
+        $this->call(\Database\Seeders\ApartmentSeeder::class);
+        $this->call(\Database\Seeders\ApartmentUserSeeder::class);
         $this->call(\Database\Seeders\ArticleCategorySeeder::class);
-        $this->call(\Database\Seeders\ArticleSeeder::class);
+        $this->call(\Database\Seeders\ArticlesSeeder::class);
+        $this->call(\Database\Seeders\DiscussionSeeder::class);
     }
 }

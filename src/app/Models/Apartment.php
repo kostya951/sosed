@@ -15,23 +15,11 @@ class Apartment extends Model
         return $this->hasMany(Ad::class);
     }
 
-    public function country(){
-        return $this->belongsTo(Country::class);
-    }
-
-    public function region(){
-        return $this->belongsTo(Region::class);
-    }
-
-    public function city(){
-        return $this->belongsTo(City::class);
-    }
-
     public function street(){
         return $this->belongsTo(Street::class);
     }
 
-    public function microregion(){
-        return $this->belongsTo(Microregion::class);
+    public function users(){
+        return $this->belongsToMany(User::class,'apartments_users','apartment_id','user_id');
     }
 }

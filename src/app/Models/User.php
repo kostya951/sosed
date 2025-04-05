@@ -54,6 +54,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Article::class,'publish_user_id','id');
     }
 
+    public function apartments(){
+        return $this->belongsToMany(Apartment::class,'apartments_users','user_id','apartment_id');
+    }
+
     public function scopeCitizen($query){
         return $query->whereRelation('role','name','citizen');
     }

@@ -13,8 +13,7 @@ class MicroregionFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => fake()->text(255),
-            'name' => fake()->text(191),
+            'name' => fake()->text(10),
         ];
     }
 
