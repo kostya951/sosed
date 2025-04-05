@@ -66,7 +66,7 @@ class ArticleServiceTest extends TestCase
     public function test_get_last_articles(){
         $expected = Article::query()
             ->orderByDesc('created_at')
-            ->limit(9)
+            ->limit(6)
             ->get()
             ->pluck('title')
             ->all();
@@ -74,7 +74,7 @@ class ArticleServiceTest extends TestCase
         $given = $this->service->getLastArticles();
         $given = array_column($given,'title');
 
-        $this->assertCount(9,$given);
+        $this->assertCount(6,$given);
         $this->assertEquals($expected,$given);
     }
 
