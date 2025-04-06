@@ -12,6 +12,10 @@ use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssembler;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
 
+use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssembler;
+use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssemblerInterface;
+use App\Core\Assemblers\Discussions\DiscussionToDiscussionCardAssembler;
+use App\Core\Assemblers\Discussions\DiscussionToDiscussionCardAssemblerInterface;
 use App\Core\Assemblers\News\NewsToLastNewsAssembler;
 use App\Core\Assemblers\News\NewsToLastNewsAssemblerInterface;
 use App\Core\Assemblers\Users\UserToLastUserAssembler;
@@ -40,6 +44,12 @@ class AssemblersServiceProvider extends ServiceProvider
         });
         $this->app->bind(ArticleAssemblerInterface::class,function($app){
             return new ArticleAssembler();
+        });
+        $this->app->bind(DiscussionToDiscussionCardAssemblerInterface::class,function($app){
+            return new DiscussionToDiscussionCardAssembler();
+        });
+        $this->app->bind(DiscussionsToDiscussionPageAssemblerInterface::class,function($app){
+            return new DiscussionsToDiscussionPageAssembler($app->make(DiscussionToDiscussionCardAssemblerInterface::class));
         });
     }
 

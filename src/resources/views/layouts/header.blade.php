@@ -6,7 +6,7 @@
             </a>
           <a class="nav-link" href="{{route('home')}}">Главная</a>
           <a class="nav-link" href="{{route('articles')}}">Статьи</a>
-          <a class="nav-link" href="#">Обсуждения</a>
+          <a class="nav-link" href="{{route('discussions')}}">Обсуждения</a>
           <a class="nav-link" href="#">Объявления</a>
           <a class="nav-link" href="#">Найти соседей</a>
           <a class="nav-link" href="#">Районы</a>

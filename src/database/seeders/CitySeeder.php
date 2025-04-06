@@ -8,11 +8,6 @@ use Illuminate\Database\Seeder;
 
 class CitySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $csvFile = fopen(database_path("sosed_cities.csv"),"r");
