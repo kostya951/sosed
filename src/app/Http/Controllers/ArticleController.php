@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Assemblers\ArticleAssemblerInterface;
+use App\Core\Assemblers\Articles\ArticleAssemblerInterface;
 use App\Core\Services\ArticleServiceInterface;
 use App\Models\Article;
 use Illuminate\Http\Request;
