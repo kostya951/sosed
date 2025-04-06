@@ -9,7 +9,7 @@
     <div class="container min-vh-100">
         <h1>{{$discussion->title}}</h1>
         <h2><a href="{{route('user.profile',['user'=>$discussion->userSlug])}}">{{$discussion->username}}</a></h2>
-        <h4>{{$discussion->date}}</h4>
+        <h4>{{$discussion->date}}</h4> <span class="d-block"><img class="d-inline" src="/img/eye-fill.svg" alt="Просмотры"/> {{$discussion->see}}</span>
         <span class="mb-3">{{$discussion->address}}</span>
         <p>{{$discussion->body}}</p>
     </div>

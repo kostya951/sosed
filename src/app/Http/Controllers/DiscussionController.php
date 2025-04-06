@@ -14,6 +14,8 @@ class DiscussionController extends Controller
     }
 
     public function show(Discussion $discussion,DiscussionAssemblerInterface $assembler) {
+        $discussion->see = $discussion->see+1;
+        $discussion->save();
         $dto = $assembler->assemble($discussion);
         return view('discussions.show',['discussion'=>$dto]);
     }
