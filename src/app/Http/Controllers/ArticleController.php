@@ -18,6 +18,8 @@ class ArticleController extends Controller
         ArticleAssemblerInterface $assembler
     )
     {
+        $article->see = $article->see + 1;
+        $article->save();
         $dto = $assembler->assemble($article);
         return view('articles.show',['article'=>$dto]);
     }

@@ -11,6 +11,7 @@ class ArticleDto
     public string $description;
     public string $slug;
     public string $date;
+    public string $see;
     public string $username;
     public string $userSlug;
 }

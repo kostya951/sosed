@@ -23,6 +23,7 @@ class ArticleAssembler implements ArticleAssemblerInterface
         $dto->date = $article->created_at;
         $dto->username = $article->user->name;
         $dto->userSlug = $article->user->slug;
+        $dto->see = $article->see;
         return $dto;
     }
 
