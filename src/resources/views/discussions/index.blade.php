@@ -9,9 +9,12 @@
         <h1>Обсуждения</h1>
         @if(!empty($dto->discussions))
             <div class="row">
-                <form method="POST" action="{{route("discussions/search")}}"></form>
+                <form method="POST" action="{{route("discussions.search")}}"></form>
             </div>
             <div class="row text-center"><span>Найдено {{$dto->totalDiscussions}} обсуждений</span></div>
+            <div class="row">
+                {!! $dto->links !!}
+            </div>
             @foreach($dto->discussions as $discussion)
                 <div class="col-4 mt-5 mb-5">
                     <x-discussioncard

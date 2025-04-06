@@ -12,6 +12,8 @@ use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssembler;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
 
+use App\Core\Assemblers\Discussions\DiscussionAssembler;
+use App\Core\Assemblers\Discussions\DiscussionAssemblerInterface;
 use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssembler;
 use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssemblerInterface;
 use App\Core\Assemblers\Discussions\DiscussionToDiscussionCardAssembler;
@@ -50,6 +52,9 @@ class AssemblersServiceProvider extends ServiceProvider
         });
         $this->app->bind(DiscussionsToDiscussionPageAssemblerInterface::class,function($app){
             return new DiscussionsToDiscussionPageAssembler($app->make(DiscussionToDiscussionCardAssemblerInterface::class));
+        });
+        $this->app->bind(DiscussionAssemblerInterface::class,function($app){
+            return new DiscussionAssembler();
         });
     }
 
