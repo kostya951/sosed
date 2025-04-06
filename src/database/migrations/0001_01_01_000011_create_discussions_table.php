@@ -25,7 +25,7 @@ class CreateDiscussionsTable extends Migration
             $table->text('answer')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->integer('status')->nullable();
-            $table->integer('see')->nullable();
+            $table->unsignedBigInteger('see')->nullable(false)->default(0);
             $table->timestamps();
         });
     }
