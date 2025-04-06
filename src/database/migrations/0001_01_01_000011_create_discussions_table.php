@@ -19,9 +19,9 @@ class CreateDiscussionsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->unsignedBigInteger('apartment_id')->nullable(false);
             $table->foreign('apartment_id')->references('id')->on('apartments');
-            $table->string('title')->nullable();
+            $table->string('title')->nullable(false);
             $table->string('photo')->nullable();
-            $table->text('body')->nullable();
+            $table->text('body')->nullable(false);
             $table->text('answer')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->integer('status')->nullable();
