@@ -22,4 +22,8 @@ class Apartment extends Model
     public function users(){
         return $this->belongsToMany(User::class,'apartments_users','apartment_id','user_id');
     }
+
+    public function discussions(){
+        return $this->hasMany(Discussion::class);
+    }
 }

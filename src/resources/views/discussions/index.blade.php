@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \App\Core\Dto\DiscussionPageDto $dto
+ * @var string $query
  */
 ?>
 @extends('layouts.app')
@@ -9,7 +10,12 @@
         <h1>Обсуждения</h1>
         @if(!empty($dto->discussions))
             <div class="row">
-                <form method="POST" action="{{route("discussions.search")}}"></form>
+                <form method="GET" action="{{route("discussions.search")}}">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="query" placeholder="Поиск по обсуждениям" value="{{ $query ?? '' }}">
+                        <button class="btn btn-primary" type="submit">Найти</button>
+                    </div>
+                </form>
             </div>
             <div class="row text-center"><span>Найдено {{$dto->totalDiscussions}} обсуждений</span></div>
             <div class="row">
