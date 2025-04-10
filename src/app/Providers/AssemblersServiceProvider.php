@@ -12,14 +12,22 @@ use App\Core\Assemblers\Articles\ArticlesToArticlePageAssemblerInterface;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssembler;
 use App\Core\Assemblers\Articles\ArticleToArticleCardAssemblerInterface;
 
+use App\Core\Assemblers\Cities\CityToCityApiAssembler;
+use App\Core\Assemblers\Cities\CityToCityApiAssemblerInterface;
+use App\Core\Assemblers\Countries\CountryToCountryApiAssembler;
+use App\Core\Assemblers\Countries\CountryToCountryApiAssemblerInterface;
 use App\Core\Assemblers\Discussions\DiscussionAssembler;
 use App\Core\Assemblers\Discussions\DiscussionAssemblerInterface;
 use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssembler;
 use App\Core\Assemblers\Discussions\DiscussionsToDiscussionPageAssemblerInterface;
 use App\Core\Assemblers\Discussions\DiscussionToDiscussionCardAssembler;
 use App\Core\Assemblers\Discussions\DiscussionToDiscussionCardAssemblerInterface;
+use App\Core\Assemblers\Microregions\MicroregionToMicroregionApiAssembler;
+use App\Core\Assemblers\Microregions\MicroregionToMicroregionApiAssemblerInterface;
 use App\Core\Assemblers\News\NewsToLastNewsAssembler;
 use App\Core\Assemblers\News\NewsToLastNewsAssemblerInterface;
+use App\Core\Assemblers\Regions\RegionToRegionApiAssembler;
+use App\Core\Assemblers\Regions\RegionToRegionApiAssemblerInterface;
 use App\Core\Assemblers\Users\UserToLastUserAssembler;
 use App\Core\Assemblers\Users\UserToLastUserAssemblerInterface;
 use Illuminate\Support\ServiceProvider;
@@ -55,6 +63,18 @@ class AssemblersServiceProvider extends ServiceProvider
         });
         $this->app->bind(DiscussionAssemblerInterface::class,function($app){
             return new DiscussionAssembler();
+        });
+        $this->app->bind(CountryToCountryApiAssemblerInterface::class,function($app){
+            return new CountryToCountryApiAssembler();
+        });
+        $this->app->bind(RegionToRegionApiAssemblerInterface::class,function($app){
+            return new RegionToRegionApiAssembler();
+        });
+        $this->app->bind(CityToCityApiAssemblerInterface::class,function($app){
+            return new CityToCityApiAssembler();
+        });
+        $this->app->bind(MicroregionToMicroregionApiAssemblerInterface::class,function($app){
+            return new MicroregionToMicroregionApiAssembler();
         });
     }
 

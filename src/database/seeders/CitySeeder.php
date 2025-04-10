@@ -12,13 +12,16 @@ class CitySeeder extends Seeder
     {
         $csvFile = fopen(database_path("sosed_cities.csv"),"r");
 
+        $i=1;
         while(($data = fgetcsv($csvFile)) !== false){
             City::create([
+                'id'=>$i,
                 'region_id'=>$data[0],
                 'name'=>$data[1],
                 'created_at'=>Carbon::now()->toDateTimeString(),
                 'updated_at'=>Carbon::now()->toDateTimeString(),
             ]);
+            $i++;
         }
 
         fclose($csvFile);
