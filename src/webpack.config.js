@@ -31,6 +31,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
+            _: 'lodash'
           })
     ]
 };

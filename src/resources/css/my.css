@@ -49,14 +49,17 @@ body {
 .flex-nowrap {
     overflow-x: scroll;
 }
+.container{
+    min-height:1vh ;
+}
 footer{
     display: flex;
     flex-direction: column;
-    min-height:50vh;
     background: #008DEE;
     color: white;
     margin-top: auto;
     width:100%;
+    min-height:25vh;
 }
 
 .col-form-label {

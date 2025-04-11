@@ -6,6 +6,7 @@ use App\Core\Assemblers\Discussions\DiscussionAssemblerInterface;
 use App\Core\Services\DiscussionServiceInterface;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class DiscussionController extends Controller
 {
@@ -23,7 +24,7 @@ class DiscussionController extends Controller
 
     public function filter(Request $request, DiscussionServiceInterface $service){
         $dto = $service->filterDiscussions($request->all());
-        return view('discussions.index',['dto'=>$dto]);
+        return View::make('discussions.discussions',['dto'=>$dto])->render();
     }
 
     public function search(Request $request, DiscussionServiceInterface $service){

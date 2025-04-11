@@ -20,6 +20,7 @@ class CitySeeder extends Seeder
                 'name'=>$data[1],
                 'created_at'=>Carbon::now()->toDateTimeString(),
                 'updated_at'=>Carbon::now()->toDateTimeString(),
+                'publish'=>true
             ]);
             $i++;
         }
